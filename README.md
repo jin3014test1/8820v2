@@ -19,7 +19,10 @@ lede编译还在报错，研究中
 
 
 CONFIG_TARGET_ramips=y
+
 CONFIG_TARGET_ramips_mt7621=y
+
 CONFIG_TARGET_ramips_mt7621_DEVICE_zte_e8820v2=y
+
 
 最新：lede用最基础.config能过编译，说明报错有.config因素，刷机后登录页面很卡，有线和无线都能用。
