@@ -452,7 +452,7 @@ endef
 TARGET_DEVICES += zbt-wg3526-16M
 
 define Device/zte_e8820v2
-        DTS := E8820V2
+        DTS := mt7621_zte_e8820v2.dts
         IMAGE_SIZE :=$(ralink_default_fw_size_16M)
         DEVICE_TITLE := ZTE E8820V2
         DEVICE_PACKAGES := \
