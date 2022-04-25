@@ -120,10 +120,6 @@ tplink,re650-v1)
 xiaomi,mi-router-ac2100)
 	ucidef_set_led_switch "wan" "wan" "blue:wan" "switch0" "0x1"
 	;;
-  zte,e8820v2)
-                                ucidef_set_led_netdev"sys" "SYS_LED" "$boardname:white:sys""eth0" "tx rx"
-                                ucidef_set_led_default"power" "POWER_LED" "$boardname:white:power""1"
-;;
 xiaomi,redmi-router-ac2100)
 	ucidef_set_led_switch "wan" "wan" "white:wan" "switch0" "0x1"
 	;;
@@ -133,6 +129,10 @@ youhua,wr1200js)
 zte,e8820s)
 	ucidef_set_led_netdev "wlan2g" "WiFi 2.4GHz" "white:wlan2g" "ra0"
 	ucidef_set_led_netdev "wlan5g" "WiFi 5GHz" "white:wlan5g" "rai0"
+	;;
+zte,e8820v2)
+        ucidef_set_led_netdev"sys" "SYS_LED" "$boardname:white:sys""eth0" "tx rx"
+        ucidef_set_led_default"power" "POWER_LED" "$boardname:white:power""1"
 	;;
 esac
 
