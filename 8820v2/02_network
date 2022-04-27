@@ -146,7 +146,6 @@ ramips_setup_macs()
 		;;
 	d-team,newifi-d2|\
 	phicomm,k2p|\
-	zte,e8820v2|\
 	xiaomi,mi-router-ac2100|\
 	xiaomi,redmi-router-ac2100)
 		lan_mac=$(cat /sys/class/net/eth0/address)
