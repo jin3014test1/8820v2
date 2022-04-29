@@ -8,10 +8,12 @@
     model = "ZTE E8820V2";
    
     aliases {
-        led-boot = &led_sys;
+        label-mac-device = &ethernet;
+	led-boot = &led_sys;
         led-failsafe = &led_sys;
         led-running = &led_sys;
         led-upgrade = &led_sys;
+	
     };
 
     chosen {
@@ -56,6 +58,8 @@
         compatible = "jedec,spi-nor";
         reg = <0>;
         spi-max-frequency = <10000000>;
+	broken-flash-reset;
+	m25p,fast-read;
 
         partitions {
             compatible = "fixed-partitions";
@@ -95,36 +99,39 @@
 };
 
 &pcie0 {
-    mt76@0,0 {
-        reg = <0x0000 0 0 0 0>;
-        mediatek,mtd-eeprom = <&factory 0x0000>;
-        };
-
-    };
+	wifi@0,0 {
+		reg = <0x0000 0 0 0 0>;
+		mediatek,mtd-eeprom = <&factory 0x0000>;
+	};
 };
 
 &pcie1 {
-    mt76@0,0 {
-        reg = <0x0000 0 0 0 0>;
-        mediatek,mtd-eeprom = <&factory 0x8000>;
-        ieee80211-freq-limit = <5000000 6000000>;
+	wifi@0,0 {
+		reg = <0x0000 0 0 0 0>;
+		mediatek,mtd-eeprom = <&factory 0x8000>;
+		ieee80211-freq-limit = <5000000 6000000>;
 
-        };
-
-    };
+		led {
+			led-sources = <2>;
+			led-active-low;
+		};
+	};
 };
 
 &ethernet {
 	compatible = "mediatek,ralink-mt7621-eth";
 	mediatek,switch = <&gsw>;
+	mtd-mac-address = <&factory 0xe000>;
 };
 &switch0 {
 	/delete-property/ compatible;
 	phy-mode = "rgmii";
 };
+
 &gsw {
 	compatible = "mediatek,ralink-mt7621-gsw";
 };
+
 &state_default {
 	gpio {
 		groups = "i2c", "uart2", "uart3", "wdt";
