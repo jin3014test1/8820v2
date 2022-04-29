@@ -53,7 +53,6 @@ ramips_setup_interfaces()
 			"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"
 		ucidef_set_interface_lan "eth0.1 ra0 rai0"
 		;;
-	zte,e8820v2|\
 	gehua,ghl-r-001)
 		ucidef_add_switch "switch0" \
 			"0:lan" "1:lan" "2:lan" "4:wan" "6@eth0"
@@ -161,7 +160,6 @@ ramips_setup_macs()
 		wan_mac=$(mtd_get_mac_ascii u-boot-env wanaddr)
 		label_mac=$wan_mac
 		;;
-	zte,e8820v2|\
 	gehua,ghl-r-001)
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
