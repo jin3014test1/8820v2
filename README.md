@@ -1,9 +1,6 @@
-1907基于https://github.com/openwrt/openwrt.git
+e8820v2-1907和e8820v2-master基于https://github.com/openwrt/openwrt.git
 
 lede和8820v2基于https://github.com/coolsnowwolf/lede.git
-
-8820v2为lede的参照newifi-d2的增加交换机修改
-
 
 
 
