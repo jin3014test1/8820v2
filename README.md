@@ -1,4 +1,4 @@
-e8820v2-1907和e8820v2-master基于https://github.com/openwrt/openwrt.git
+E8820v2-1907和e8820v2-master基于https://github.com/openwrt/openwrt.git
 
 lede和8820v2基于https://github.com/coolsnowwolf/lede.git
 
