@@ -1847,7 +1847,6 @@ endef
 TARGET_DEVICES += zte_e8820s
 
 define Device/zte_e8820v2
-  $(Device/dsa-migration)
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := ZTE
   DEVICE_MODEL := E8820V2
