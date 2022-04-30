@@ -7,6 +7,11 @@ lede和8820v2基于https://github.com/coolsnowwolf/lede.git
 
 e8820v2-master来源于siwind
 
+------------------------------
+lede来源于Z-Prion-lede
+
+8820v2从lede的dts和02修改
+
 -----------------------------------------
 1907是按恩山sivs147大侠源码修改的，原Z-Prion/wr720n-710n-700n-lede-file库的不好用，编译报错。恩山sivs147大侠源码不错，编译后刷机成功，再后来找到siwind的库一看，和恩山sivs147大侠源码一摸一样。
 
