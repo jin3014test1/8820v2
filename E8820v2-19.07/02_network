@@ -37,7 +37,7 @@ ramips_setup_interfaces()
 	w2914nsv2|\
 	zbt-we2026)
 		ucidef_add_switch "switch0" \
-			"0:lan:1" "1:lan:2" "2:lan:3" "3:lan:4" "4:wan:5" "6@eth0"
+			"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"
 		;;
 	3g150b|\
 	3g300m|\
@@ -173,6 +173,7 @@ ramips_setup_interfaces()
 	netgear,r6120|\
 	r6220|\
 	netgear,r6350|\
+	raisecom,msg1500x00|\
 	wndr3700v5)
 		ucidef_add_switch "switch0" \
 			"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan" "6@eth0"
@@ -476,16 +477,14 @@ ramips_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"4:lan:1" "2:lan:2" "0:wan" "6@eth0"
 		;;
+	zte,e8820s|\
+	zte,e8820v2)
+			"0:lan:1" "1:lan:2" "2:lan:3" "3:lan:4" "4:wan" "6@eth0"
+		;;
 	zyxel,keenetic-start)
 		ucidef_add_switch "switch0" \
 			"0:lan:3" "1:lan:2" "2:lan:1" "3:lan:0" "4:wan" "6@eth0"
 		;;
-	zte,e8820v2)
-                ucidef_set_interfaces_lan_wan"eth0.1" "eth0.2"
-                ucidef_add_switch"switch0" "1" "1" \
-                        "0:lan:1""1:lan:1" "2:lan:1" "3:lan:1" "4:wan:2""6t@eth0"
-		;;
-		
 	*)
 		RT3X5X=`cat /proc/cpuinfo | egrep "(RT3.5|RT5350)"`
 		if [ -n "${RT3X5X}" ]; then
@@ -642,6 +641,10 @@ ramips_setup_macs()
 	phicomm,k2g)
 		lan_mac=$(mtd_get_mac_binary factory 40)
 		wan_mac=$(mtd_get_mac_binary factory 46)
+		;;
+	raisecom,msg1500x00)
+		lan_mac=$(mtd_get_mac_binary factory 57344)
+		wan_mac=$(macaddr_add "$lan_mac" 2)
 		;;
 	rt-n56u)
 		lan_mac=$(cat /sys/class/net/eth0/address)
