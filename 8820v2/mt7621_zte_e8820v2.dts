@@ -123,10 +123,6 @@
 };
 
 
-&gmac0 {
-    mtd-mac-address = <&factory 0xe000>;
-};
-
 &ethernet {
 	compatible = "mediatek,ralink-mt7621-eth";
 	mediatek,switch = <&gsw>;
